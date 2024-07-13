@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="UTF-8">
+  <title>API Key Extension</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap');
+
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: 'Roboto', sans-serif;
+    max-width: 80%;
+    margin: 0 auto;
+    padding: 2vw;
+    background-color: #121212;
+    color: #ffffff;
+    border: 1px solid #303030;
+    border-radius: 10px;
+    box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.2);
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 2vw;
+  }
+
+  label {
+    color: #ffffff;
+    font-weight: 500;
+  }
+
+  input, textarea {
+    padding: 1.5vw;
+    background-color: #212121;
+    color: #ffffff;
+    border: 1px solid #303030;
+    border-radius: 5px;
+    width: 100%;
+    transition: border-color 0.3s ease;
+  }
+
+  input:focus, textarea:focus {
+    border-color: #007bff;
+  }
+
+  button {
+    padding: 1.5vw;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  button:hover {
+    background-color: #0056b3;
+  }
+
+  #api-key-status, #api-response {
+    margin-top: 2vw;
+    color: #dddddd;
+    width: 100%;
+    word-wrap: break-word;
+  }
+
+    /* Loader CSS */
+    .loader {
+      border: 8px solid #f3f3f3;
+      border-radius: 50%;
+      border-top: 8px solid #007bff;
+      width: 50px;
+      height: 50px;
+      animation: spin 2s linear infinite;
+      display: none; /* Hidden by default */
+      margin: 0 auto;
+    }
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+ 
+</style>
+
+</head>
+<body>
+  <button id="toggle-dark-mode">Toggle Dark Mode</button>
+  <script src="background.js"></script>
+  <form id="api-key-form"  accept-charset="UTF-8">
+    <label for="api-key">API Key:</label>
+  <input type="text" id="api-key" name="api-key">
+  <p id="api-key-status"></p>
+  <button type="submit">Submit</button>
+  <label for="api-text">API Text:</label>
+  <textarea id="api-text" name="api-text"></textarea>
+<button id="submit-button">Submit Text</button>
+</form>
+<div class="loader" id="loader"></div>
+<p id="api-response"></p>
+</body>

@@ -1,0 +1,47 @@
+{
+  "manifest_version": 2,
+  "name": "GONK-Chat",
+  "version": "1.0",
+  "description": "Une superbe extension qui va changer ta vie avec l'IA",
+  "icons": {
+    "48": "icon/gonk.jpg"
+  },
+  "permissions": [
+    "storage",
+    "https://api.mistral.ai/",
+    "tabs",
+    "activeTab",
+    "notifications",
+    "https://mail.google.com/*"
+  ],
+  "browser_action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "19": "icon/gonk.jpg",
+      "38": "icon/gonk.jpg"
+    }
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://mail.google.com/*"],
+      "js": ["content.js"]
+    }
+  ],
+  "commands": {
+    "open_extension": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+U"
+      }
+    },
+    "_execute_browser_action": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+U",
+        "mac": "Command+Shift+U"
+      }
+    }
+  },
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": false
+  }
+}
